@@ -2,18 +2,19 @@ import javax.swing.JOptionPane;
 
 public class PasswordValidationBrown
 {
+	//Aleksander Brown
 	public static void main(String[]args)
 	{
 		boolean match = false;
 		
-		while(match == false)
+		while(!match)
 		{
 			String password1 = JOptionPane.showInputDialog("Enter a password: ");
 			String password2 = JOptionPane.showInputDialog("Confirm Password: ");
 			match = validatePassword(password1, password2);
 		}
 
-		System.out.print(match);
+		JOptionPane.showMessageDialog(null,"Password changed.");
 	}
 
 	public static boolean validatePassword(String str1, String str2)
@@ -26,45 +27,63 @@ public class PasswordValidationBrown
 		boolean num = false;
 		
 		//test length
-		if(str1.length() >= 8)
-		{
+		if(str1.length() >= 8){
 			length = true;			
 		}
-		else
-		{
+		else{
 			JOptionPane.showMessageDialog(null, "Password must be 8 characters or longer.");
-			return false;
+			return pass;
 		}
 		
 		//test upper case
-		for(int i = 0; i < str1.length(); i++)
-		{
+		for(int i = 0; i < str1.length(); i++){
 			char sub = str1.charAt(i);
 			
-			if(Character.isUpperCase(sub))
-			{
+			if(Character.isUpperCase(sub)){
 				cap = true;
 				break;
 			}
-			//else 
-			//{
-			//	JOptionPane.showMessageDialog(null, "Password must have an upper case character.");
-			//	return false;
-			//}
+		}
+		if(!cap) {
+			JOptionPane.showMessageDialog(null, "Password must have an upper case letter.");
+			return pass;
 		}
 		
 		//test lower case
-		for(int i=0; i < str1.length(); i++)
-		{
+		for(int i=0; i < str1.length(); i++){
 			char sub = str1.charAt(i);
 			
-			if(Character.isLowerCase(sub))
-			{
+			if(Character.isLowerCase(sub)){
 				lower = true;
 				break;
 			}
-			else JOptionPane.showMessageDialog(null,"Password must have a lower case character.");
-			return false;
+		}
+		if(!lower) {
+			JOptionPane.showMessageDialog(null, "Password must have a lower case letter.");
+			return pass;
+		}
+		
+		//test num
+		for(int i=0; i < str1.length(); i++){
+			char sub = str1.charAt(i);
+			
+			if(Character.isDigit(sub)) {
+				num = true;
+				break;
+			}
+		}
+		if(!num) {
+			JOptionPane.showMessageDialog(null, "Password must contain a number");
+			return pass;
+		}
+		
+		//check all conditions and strings match
+		if(length && cap && lower && num && str1.equals(str2)) {
+			pass = true;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Passwords must match.");
+			return pass;
 		}
 
 		return pass;
