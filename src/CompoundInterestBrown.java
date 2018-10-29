@@ -35,14 +35,10 @@ public class CompoundInterestBrown
 	//Aleksander Brown
 	public static void main(String[]args)
 	{
-		/*
-		double amt = Double.parseDouble(JOptionPane.showInputDialog("Enter amount: "));
-		double rate = Double.parseDouble(JOptionPane.showInputDialog("Enter rate as decimal: "));
-		double years = Double.parseDouble(JOptionPane.showInputDialog("Enter number of years: "));
-		*/
-		JOptionPane.showMessageDialog(null, "Your total is " + String.format("$%.2f", computeBalance(1000, .045, 3))
-			+ "\nYour total is " + String.format("$%.2f", computeBalance(2000, .03, 5))
-			+ "\nYour total is " + String.format("$%.2f", computeBalance(3000, .01, 10))
+		String format = "$%.2f";
+		JOptionPane.showMessageDialog(null, "Your total is " + String.format(format, computeBalance(1000, .045, 3))
+			+ "\nYour total is " + String.format(format, computeBalance(2000, .03, 5))
+			+ "\nYour total is " + String.format(format, computeBalance(3000, .01, 10))
 			);
 	}
 	
