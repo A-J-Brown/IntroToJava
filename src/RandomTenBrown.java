@@ -20,6 +20,7 @@ Your program should use at least one enhanced for loop.
 
 public class RandomTenBrown
 {
+	//Aleksander Brown
 	public static void main(String[]args)
 	{
 		int[] array = new int[10];
@@ -54,7 +55,7 @@ public class RandomTenBrown
 	}
 	public static void All(int[] num)
 	{
-		System.out.print("All number in array: ");
+		System.out.print("All numbers in array: ");
 		//print array values by index
 		for(int i=0; i < num.length; i++)
 		{
@@ -75,7 +76,7 @@ public class RandomTenBrown
 	}
 	public static void Even(int[] num)
 	{
-		System.out.print("\nEven number in array: ");
+		System.out.print("\nEven numbers in array: ");
 		//print array values by index
 		for(int i=0; i < num.length; i++)
 		{
